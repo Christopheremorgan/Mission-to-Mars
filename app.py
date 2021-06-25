@@ -11,6 +11,7 @@ mongo = PyMongo(app)
 # index / home page route
 @app.route("/")
 def index():
+   # ??????????  need to fix line below ?????? does it need to match config line?
    mars = mongo.db.mars.find_one()
    return render_template("index.html", mars=mars)
 
@@ -24,4 +25,4 @@ def scrape():
 
 # run prompt for flask
 if __name__ == "__main__":
-   app.run()
+   app.run(debug=True)
